@@ -40,7 +40,6 @@ run pip3 install uwsgi==2.0.8
 
 # install our requirements before we add our code because it takes a while. We don't want to have
 # to do thi step every time we rebuild our docker image when the code is updated.
-WORKDIR $CODE
 add install-pip3.sh $CODE/install-pip3.sh
 run chmod +x $CODE/install-pip3.sh
 run $CODE/install-pip3.sh
@@ -72,5 +71,6 @@ RUN mkdir /etc/service/uwsgi
 ADD uwsgi.sh /etc/service/uwsgi/run
 run chmod +x /etc/service/uwsgi/run
 
+WORKDIR $CODE/app
 VOLUME ["/var/log"]
 expose 80

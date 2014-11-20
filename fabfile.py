@@ -20,12 +20,12 @@ def v():
 
 def test():
     with cd(env.vagrant_folder):
-        run('fig run web /env/bin/python app/manage.py test')
+        run('fig run web /env/bin/python manage.py test')
 
 
 def testapp(app):
     with cd(env.vagrant_folder):
-        run('fig run web /env/bin/python app/manage.py test %s' % app)
+        run('fig run web /env/bin/python manage.py test %s' % app)
 
 
 def commit():
@@ -65,19 +65,19 @@ def stop():
 def collectstatic():
     """Collect static media."""
     with cd(env.vagrant_folder):
-        run('fig run web /env/bin/python app/manage.py collectstatic --noinput')
+        run('fig run web /env/bin/python manage.py collectstatic --noinput')
 
 
 def syncdb():
     """Sync the database."""
     with cd(env.vagrant_folder):
-        run('fig run web /env/bin/python app/manage.py syncdb')
+        run('fig run web /env/bin/python manage.py syncdb')
 
 
 def migrate():
     """Run migrate on the db"""
     with cd(env.vagrant_folder):
-        run('fig run web /env/bin/python app/manage.py migrate')
+        run('fig run web /env/bin/python manage.py migrate')
 
 
 def restart():
@@ -89,19 +89,19 @@ def restart():
 def manage(command):
     """Run the passed manage command"""
     with cd(env.vagrant_folder):
-        run("fig run web /env/bin/python app/manage.py %s" % command)
+        run("fig run web /env/bin/python manage.py %s" % command)
 
 
 def makemigrations(app):
     """Run makemigrations on the django app"""
     with cd(env.vagrant_folder):
-        run("fig run web /env/bin/python app/manage.py makemigrations %s" % app)
+        run("fig run web /env/bin/python manage.py makemigrations %s" % app)
 
 
 def startapp(app):
     """Run manage.py startapp for the passed app"""
     with cd(env.vagrant_folder):
-        run("fig run web /env/bin/python app/manage.py startapp app/%s" % app)
+        run("fig run web /env/bin/python manage.py startapp {0}".format(app))
 
 
 def installrequirements():
@@ -113,13 +113,13 @@ def installrequirements():
 def dshell():
     """Run manage.py shell"""
     with cd(env.vagrant_folder):
-        run("fig run web /env/bin/python app/manage.py shell")
+        run("fig run web /env/bin/python manage.py shell")
 
 
 def runserver():
     """Run the django development web server"""
     with cd(env.vagrant_folder):
-        run("docker exec -d vagrant_web_1 /env/bin/python app/manage.py runserver 0.0.0.0:8000")
+        run("docker exec -d vagrant_web_1 /env/bin/python manage.py runserver 0.0.0.0:8000")
 
 
 def status():
