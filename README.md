@@ -1,4 +1,4 @@
-django-template
+tdd-python
 ===============
 
-Template for new Django projects
+Repo for code related to tdd with python.
