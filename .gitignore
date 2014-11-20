@@ -76,3 +76,5 @@ modules/
 
 # PyCHarm
 .idea/
+
+django_private_key
