@@ -50,7 +50,7 @@ add requirements $CODE/requirements
 run /env/bin/pip install -r $CODE/requirements.txt
 
 # add our ssh key
-add id_rsa.pub /tmp/id_rsa.pub
+add django_public_key /tmp/id_rsa.pub
 run cat /tmp/id_rsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.pub
 
 # install our code

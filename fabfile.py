@@ -129,7 +129,7 @@ def status():
 
 def sshweb():
     """SSH connect to the web server"""
-    local("ssh -i id_rsa -l root -p 2223 33.33.33.33")
+    local("ssh -i django_private_key -l root -p 2223 33.33.33.33")
 
 
 def build():
