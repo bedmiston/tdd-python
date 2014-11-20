@@ -1,0 +1,21 @@
+db:
+  image: postgres:9.3
+  volumes:
+    - /data:/var/lib/postgresql/data
+  ports:
+    - "5432:5432"
+web:
+  build: .
+  volumes:
+    - .:/webapps/django
+  ports:
+    - "80:80"
+    - "8000:8000"
+    - "8001:8001"
+    - "2223:22"
+  links:
+    - db
+  environment:
+    DJANGO_SECRET_KEY: "l2m12=spld!a^m30@%gkvk*)f*x(wh18v70ch04mpnnt%!-h7t"
+    DJANGO_SETTINGS_MODULE: website.settings.local
+    RACK_ENV: local
