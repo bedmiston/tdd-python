@@ -144,8 +144,15 @@ def figrun(command):
         run("fig %s" % command)
 
 
-def functest():
+def ft():
     with lcd("app/"):
         with shell_env(DJANGO_SETTINGS_MODULE="website.settings.test"):
             with shell_env(DJANGO_SECRET_KEY='l2m12=spld!a^m30@%gkvk*)f*x(wh18v70ch04mpnnt%!-h7t'):
                 local("python manage.py test functional_tests")
+
+
+def fts(test):
+    with lcd("app/"):
+        with shell_env(DJANGO_SETTINGS_MODULE="website.settings.test"):
+            with shell_env(DJANGO_SECRET_KEY='l2m12=spld!a^m30@%gkvk*)f*x(wh18v70ch04mpnnt%!-h7t'):
+                local("python manage.py test functional_tests.%s" % (test,))
