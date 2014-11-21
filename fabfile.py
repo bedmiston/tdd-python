@@ -1,6 +1,6 @@
 from __future__ import with_statement
-from fabric.api import env, local, settings, abort, run, cd
-from fabric.contrib.console import confirm
+from fabric.api import env, local, run, cd, lcd
+from fabric.context_managers import shell_env
 
 
 def v():
@@ -142,3 +142,10 @@ def figrun(command):
     """Run the passed fig command"""
     with cd(env.vagrant_folder):
         run("fig %s" % command)
+
+
+def functest():
+    with lcd("app/"):
+        with shell_env(DJANGO_SETTINGS_MODULE="website.settings.test"):
+            with shell_env(DJANGO_SECRET_KEY='l2m12=spld!a^m30@%gkvk*)f*x(wh18v70ch04mpnnt%!-h7t'):
+                local("python manage.py test functional_tests")

@@ -1,0 +1,5 @@
+* Don't save blank items for every request
+* Code smell; POST test is too long
+* Display multiple items in the table
+Get funtional test to clean up after itself
+Support more than one list
