@@ -10,4 +10,5 @@
 
 Remove hardcoded URLs from views.py
 Remove hardcoded URLS from tests
-Remove hardcoded URLs from forms in list.html and home.heml
+Remove hardcoded URLs from forms in list.html and home.html
+Remove duplication of validation logic in views
