@@ -11,4 +11,3 @@
 
 Remove hardcoded URLs from views.py
 Remove hardcoded URLS from tests
-Remove duplication of validation logic in views
